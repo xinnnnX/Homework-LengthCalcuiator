@@ -20,6 +20,16 @@ namespace LengthCalculator
         string input;
         double output;
 
+        private void lengthconvert(int kind, double len)
+        {
+            if (kind != 0) txtCM.Text = string.Format("{0:0.##########}", len);
+            if (kind != 1) txtM.Text = string.Format("{0:0.##########}", len / 100);
+            if (kind != 2) txtKM.Text = string.Format("{0:0.##########}", len / 100000);
+            if (kind != 3) txtIn.Text = string.Format("{0:0.##########}", len / 2.54);
+            if (kind != 4) txtFt.Text = string.Format("{0:0.##########}", len / 30.48);
+            if (kind != 5) txtYard.Text = string.Format("{0:0.##########}", len / 91.44);
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -52,11 +62,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                txtM.Text = string.Format("{0:0.##########}", output / 100);
-                txtKM.Text = string.Format("{0:0.##########}", output / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", output / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", output / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", output / 91.44);
+                lengthconvert(0, output);
             }
             else
             {
@@ -71,12 +77,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                output = output * 100;
-                txtCM.Text = string.Format("{0:0.##########}", output);
-                txtKM.Text = string.Format("{0:0.##########}", output / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", output / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", output / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", output / 91.44);
+                lengthconvert(1, output * 100);
             }
             else
             {
@@ -91,12 +92,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                output = output * 100000;
-                txtCM.Text = string.Format("{0:0.##########}", output);
-                txtM.Text = string.Format("{0:0.##########}", output / 100);
-                txtIn.Text = string.Format("{0:0.##########}", output / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", output / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", output / 91.44);
+                lengthconvert(2, output * 100000);
             }
             else
             {
@@ -111,12 +107,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                output = output * 2.54;
-                txtCM.Text = string.Format("{0:0.##########}", output);
-                txtM.Text = string.Format("{0:0.##########}", output / 100);
-                txtKM.Text = string.Format("{0:0.##########}", output / 100000);
-                txtFt.Text = string.Format("{0:0.##########}", output / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", output / 91.44);
+                lengthconvert(3, output * 2.54);
             }
             else
             {
@@ -131,12 +122,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                output = output * 30.48;
-                txtCM.Text = string.Format("{0:0.##########}", output);
-                txtM.Text = string.Format("{0:0.##########}", output / 100);
-                txtKM.Text = string.Format("{0:0.##########}", output / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", output / 2.54);
-                txtYard.Text = string.Format("{0:0.##########}", output / 91.44);
+                lengthconvert(4, output * 30.48);
             }
             else
             {
@@ -151,12 +137,7 @@ namespace LengthCalculator
 
             if (double.TryParse(input, out output) == true)
             {
-                output = output * 91.44;
-                txtCM.Text = string.Format("{0:0.##########}", output);
-                txtM.Text = string.Format("{0:0.##########}", output / 100);
-                txtKM.Text = string.Format("{0:0.##########}", output / 100000);
-                txtIn.Text = string.Format("{0:0.##########}", output / 2.54);
-                txtFt.Text = string.Format("{0:0.##########}", output / 30.48);
+                lengthconvert(5, output * 91.44);
             }
             else
             {
